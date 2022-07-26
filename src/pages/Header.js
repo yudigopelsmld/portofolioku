@@ -12,11 +12,8 @@ const Header = () => (
                     <img src={homeData.imageprofile} alt="" className="img-fluid rounded-circle"/>
                     <h1 className="text-light"><Link to="/">{homeData.title}</Link></h1>
                         <div className="social-links mt-3 text-center">
-                            <Link to="#" className="twitter"><i className="bx bxl-twitter"></i></Link>
-                            <Link to="#" className="facebook"><i className="bx bxl-facebook"></i></Link>
-                            <Link to="#" className="instagram"><i className="bx bxl-instagram"></i></Link>
-                            <Link to="#" className="google-plus"><i className="bx bxl-skype"></i></Link>
-                            <Link to="#" className="linkedin"><i className="bx bxl-linkedin"></i></Link>
+                            <a className='twitter' href="http://twitter.com/yudigopels" target='_blank'><i className="bx bxl-twitter"></i></a>
+                            <a className='linkedin' href="https://www.linkedin.com/in/yudi-susanto/" target='_blank'><i className="bx bxl-linkedin"></i></a>
                         </div>
                     </div>
 
