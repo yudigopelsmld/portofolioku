@@ -1,74 +1,102 @@
 import React from 'react';
 import { aboutData } from '../data/aboutData';
 import { homeData } from '../data/homeData'
+import { resumeData } from '../data/resumeData'
 
 const Resume = () => (
-    <div>
-        <section id="resume" className="resume">
-      <div className="container">
+<div>
+  <section id="resume" className="resume">
+  <div className="container">
 
-        <div className="section-title">
-          <h2>Resume</h2>
-          <p>Daftar Pekerjaan dan Pendidikan</p>
-        </div>
-
-        <div className="row">
-          <div className="col-lg-6" data-aos="fade-up">
-            <h3 className="resume-title">Summary</h3>
-            <div className="resume-item pb-0">
-              <h4>{homeData.title}</h4>
-              <p><em>{aboutData.about2}</em></p>
-              <ul>
-                <li>{aboutData.kota}, {aboutData.negara}</li>
-                <li>{aboutData.telpon}</li>
-                <li>{aboutData.email}</li>
-              </ul>
-            </div>
-
-            <h3 className="resume-title">Education</h3>
-            <div className="resume-item">
-              <h4>Master of Fine Arts &amp; Graphic Design</h4>
-              <h5>2015 - 2016</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
-            </div>
-            <div className="resume-item">
-              <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-              <h5>2010 - 2014</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
-            </div>
-          </div>
-          <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 className="resume-title">Professional Experience</h3>
-            <div className="resume-item">
-              <h4>Senior graphic design specialist</h4>
-              <h5>2019 - Present</h5>
-              <p><em>Experion, New York, NY </em></p>
-              <ul>
-                <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-                <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-                <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-              </ul>
-            </div>
-            <div className="resume-item">
-              <h4>Graphic design specialist</h4>
-              <h5>2017 - 2018</h5>
-              <p><em>Stepping Stone Advertising, New York, NY</em></p>
-              <ul>
-                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
+    <div className="section-title">
+      <h2>Resume</h2>
+      <p>Daftar Pekerjaan dan Pendidikan</p>
     </div>
+
+    <div className="row">
+      
+      <div className="col-lg-6" data-aos="fade-up">
+
+        <h3 className="resume-title">Summary</h3>
+        <div className="resume-item pb-0">
+          <h4>{homeData.title}</h4>
+          <p><em>{aboutData.about2}</em></p>
+          <ul>
+            <li>{aboutData.kota}, {aboutData.negara}</li>
+            <li>{aboutData.telpon}</li>
+            <li>{aboutData.email}</li>
+          </ul>
+        </div>
+
+        <h3 className="resume-title">Education</h3>
+        <div className="resume-item">
+          <h4>{resumeData.jurusan1}</h4>
+          <h5>{resumeData.tahun1}</h5>
+          <p><em>{resumeData.sekolah1}</em></p>
+          <p>{resumeData.detail1}</p>
+        </div>
+
+        <div className="resume-item">
+          <h4>{resumeData.jurusan2}</h4>
+          <h5>{resumeData.tahun2}</h5>
+          <p><em>{resumeData.sekolah2}</em></p>
+          <p>{resumeData.detail2}</p>
+        </div>
+      </div>
+
+      <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <h3 className="resume-title">Professional Experience</h3>
+
+        <div className="resume-item">
+            <h4>{resumeData.jabatan5}</h4>
+            <h5>{resumeData.thnjabat5}</h5>
+            <p><em>{resumeData.perusahaan5} </em></p>
+            <ul>
+              <li>{resumeData.tugas5}</li>
+            </ul>
+          </div>
+
+          <div className="resume-item">
+            <h4>{resumeData.jabatan4}</h4>
+            <h5>{resumeData.thnjabat4}</h5>
+            <p><em>{resumeData.perusahaan4} </em></p>
+            <ul>
+              <li>{resumeData.tugas4}</li>
+            </ul>
+          </div>
+
+        <div className="resume-item">
+            <h4>{resumeData.jabatan3}</h4>
+            <h5>{resumeData.thnjabat3}</h5>
+            <p><em>{resumeData.perusahaan3} </em></p>
+            <ul>
+              <li>{resumeData.tugas3}</li>
+            </ul>
+          </div>
+
+          <div className="resume-item">
+            <h4>{resumeData.jabatan2}</h4>
+            <h5>{resumeData.thnjabat2}</h5>
+            <p><em>{resumeData.perusahaan2} </em></p>
+            <ul>
+              <li>{resumeData.tugas2}</li>
+            </ul>
+          </div>
+            
+          <div className="resume-item">
+            <h4>{resumeData.jabatan1}</h4>
+            <h5>{resumeData.thnjabat1}</h5>
+            <p><em>{resumeData.perusahaan1} </em></p>
+            <ul>
+              <li>{resumeData.tugas1}</li>=
+            </ul>
+          </div>
+      </div>
+    </div>
+
+  </div>
+  </section>
+</div>
     )
 
 export default Resume

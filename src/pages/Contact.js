@@ -1,10 +1,5 @@
 import React from 'react';
-//import { BrowserRouter as Router, Route, Routes, Link, Switch, Redirect } from "react-router-dom";
-//import Header from './Header';
-//import Navbar from './Navbar';
-//import axios from 'axios';
-//import { useState, useEffect } from "react";
-//import './Navbar.css'
+import { aboutData } from '../data/aboutData'
 
 const Contact = () => (
     <div>
@@ -13,7 +8,7 @@ const Contact = () => (
 
         <div className="section-title">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Contact details that can be reached</p>
         </div>
 
         <div className="row" data-aos="fade-in">
@@ -23,19 +18,19 @@ const Contact = () => (
               <div className="address">
                 <i className="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>{aboutData.kota}</p>
               </div>
 
               <div className="email">
                 <i className="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>{aboutData.email}</p>
               </div>
 
               <div className="phone">
                 <i className="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>{aboutData.telpon}</p>
               </div>
 
             </div>
@@ -43,7 +38,7 @@ const Contact = () => (
           </div>
 
           <div className="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" className="php-email-form">
+            <form action="#" method="post" role="form" className="php-email-form">
               <div className="row">
                 <div className="form-group col-md-6">
                   <label>Your Name</label>

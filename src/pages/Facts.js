@@ -1,4 +1,5 @@
 import React from 'react';
+import { factData } from '../data/factData'
 
 const Facts = () => (
     <div>
@@ -7,7 +8,7 @@ const Facts = () => (
 
         <div className="section-title">
           <h2>Facts</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>{factData.detail}</p>
         </div>
 
         <div className="row no-gutters">
@@ -16,7 +17,7 @@ const Facts = () => (
             <div className="count-box">
               <i className="bi bi-emoji-smile"></i>
               <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" className="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae</p>
+              <p><strong>{factData.item1}</strong></p>
             </div>
           </div>
 
@@ -24,7 +25,7 @@ const Facts = () => (
             <div className="count-box">
               <i className="bi bi-journal-richtext"></i>
               <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" className="purecounter"></span>
-              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
+              <p><strong>{factData.item2}</strong></p>
             </div>
           </div>
 
@@ -32,7 +33,7 @@ const Facts = () => (
             <div className="count-box">
               <i className="bi bi-headset"></i>
               <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" className="purecounter"></span>
-              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
+              <p><strong>{factData.item3}</strong></p>
             </div>
           </div>
 
@@ -40,7 +41,7 @@ const Facts = () => (
             <div className="count-box">
               <i className="bi bi-people"></i>
               <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" className="purecounter"></span>
-              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
+              <p><strong>{factData.item4}</strong></p>
             </div>
           </div>
 

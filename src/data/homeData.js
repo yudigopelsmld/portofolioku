@@ -1,5 +1,5 @@
 export const homeData = {
     title: "Yudi Susanto",
-    description: "Software Developer.",
+    description: "Software Engineer",
     imageprofile: "assets/img/profile-img.jpg"
 }
