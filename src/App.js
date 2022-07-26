@@ -2,8 +2,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link, Switch, Redirect } from "react-router-dom";
-//import axios from 'axios';
-//import Navbar from './components/Navbar/Navbar';
+import axios from 'axios';
 import Header from './pages/Header';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -14,17 +13,18 @@ import Contact from './pages/Contact';
 import Footer from './pages/Footer';
 
 class App extends Component {
-/*
+
   constructor(props) {
     super(props);
     this.state = {
       users: [],
+      about: '',
       isiToken: '',
       isiEmail: 'cvmiladiyyah@gmail.com',
       isiPassword: 'arbiamel',
     };
   }
-/*
+
   componentDidMount() {
     //this.setState({ token:'dfdd' });
     //console.log(token);
@@ -35,15 +35,21 @@ class App extends Component {
     axios
       .post('http://127.0.0.1:8000/api/login', data)
       .then(response => {
-        console.log(response.data);
+        if((response.data.success)===true){
+        //console.log(response.data);
         this.setState({ token: response.data.token });
+        this.setState({ users: response.data.user });
+        //console.log(this.state.users);
+        }
       })
       .catch(error => {
         console.log('error', error);
       });
+
+
       
   }
-  */
+  
   render() {
   return (
     <Router>
@@ -51,7 +57,10 @@ class App extends Component {
       <Header/>
         <main id="main">
         <Routes>
-        <Route exact path="/" element={<Home/>}></Route>
+        <Route exact path="/" element={<Home
+        
+        users = { this.state.users }
+        />}></Route>
         <Route path="/home" element={<Home/>}></Route>
         <Route path="/about" element={<About/>}></Route>
         <Route path="/resume" element={<Resume/>}></Route>
@@ -61,6 +70,7 @@ class App extends Component {
         </Routes>
         </main>
       <Footer/>
+      
     </div>
     </Router>
   );
