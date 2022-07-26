@@ -10,7 +10,7 @@ const Header = () => (
                 <div className="d-flex flex-column">
                     <div className="profile">
                     <img src={homeData.imageprofile} alt="" className="img-fluid rounded-circle"/>
-                    <h1 className="text-light"><Link to="/">Alex Smith</Link></h1>
+                    <h1 className="text-light"><Link to="/">{homeData.title}</Link></h1>
                         <div className="social-links mt-3 text-center">
                             <Link to="#" className="twitter"><i className="bx bxl-twitter"></i></Link>
                             <Link to="#" className="facebook"><i className="bx bxl-facebook"></i></Link>
