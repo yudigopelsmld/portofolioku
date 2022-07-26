@@ -1,25 +1,70 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link, Switch, Redirect } from "react-router-dom";
+//import axios from 'axios';
+//import Navbar from './components/Navbar/Navbar';
+import Header from './pages/Header';
+import Home from './pages/Home';
+import About from './pages/About';
+import Resume from './pages/Resume';
+import Portofolio from './pages/Portofolio';
+import Services from './pages/Services';
+import Contact from './pages/Contact';
+import Footer from './pages/Footer';
 
-function App() {
+class App extends Component {
+/*
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [],
+      isiToken: '',
+      isiEmail: 'cvmiladiyyah@gmail.com',
+      isiPassword: 'arbiamel',
+    };
+  }
+/*
+  componentDidMount() {
+    //this.setState({ token:'dfdd' });
+    //console.log(token);
+    var data = {
+      email: this.state.isiEmail,
+      password: this.state.isiPassword
+  }
+    axios
+      .post('http://127.0.0.1:8000/api/login', data)
+      .then(response => {
+        console.log(response.data);
+        this.setState({ token: response.data.token });
+      })
+      .catch(error => {
+        console.log('error', error);
+      });
+      
+  }
+  */
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div>
+      <Header/>
+        <main id="main">
+        <Routes>
+        <Route exact path="/" element={<Home/>}></Route>
+        <Route path="/home" element={<Home/>}></Route>
+        <Route path="/about" element={<About/>}></Route>
+        <Route path="/resume" element={<Resume/>}></Route>
+        <Route path="/portofolio" element={<Portofolio/>}></Route>
+        <Route path="/services" element={<Services/>}></Route>
+        <Route path="/contact" element={<Contact/>}></Route>
+        </Routes>
+        </main>
+      <Footer/>
     </div>
+    </Router>
   );
+}
 }
 
 export default App;
