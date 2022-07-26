@@ -8,7 +8,7 @@ const Footer = () => (
             &copy; Copyright <strong><span>iPortfolio</span></strong>
         </div>
         <div className="credits">
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a><br/>Modified to ReactJs by Me
         </div>
         </div>
     </footer>
