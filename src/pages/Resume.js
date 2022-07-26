@@ -1,10 +1,6 @@
 import React from 'react';
-//import { BrowserRouter as Router, Route, Routes, Link, Switch, Redirect } from "react-router-dom";
-//import Header from './Header';
-//import Navbar from './Navbar';
-//import axios from 'axios';
-//import { useState, useEffect } from "react";
-//import './Navbar.css'
+import { aboutData } from '../data/aboutData';
+import { homeData } from '../data/homeData'
 
 const Resume = () => (
     <div>
@@ -13,19 +9,19 @@ const Resume = () => (
 
         <div className="section-title">
           <h2>Resume</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Daftar Pekerjaan dan Pendidikan</p>
         </div>
 
         <div className="row">
           <div className="col-lg-6" data-aos="fade-up">
-            <h3 className="resume-title">Sumary</h3>
+            <h3 className="resume-title">Summary</h3>
             <div className="resume-item pb-0">
-              <h4>Alex Smith</h4>
-              <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
+              <h4>{homeData.title}</h4>
+              <p><em>{aboutData.about2}</em></p>
               <ul>
-                <li>Portland par 127,Orlando, FL</li>
-                <li>(123) 456-7891</li>
-                <li>alice.barkley@example.com</li>
+                <li>{aboutData.kota}, {aboutData.negara}</li>
+                <li>{aboutData.telpon}</li>
+                <li>{aboutData.email}</li>
               </ul>
             </div>
 

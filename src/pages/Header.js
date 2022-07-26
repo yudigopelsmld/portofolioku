@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Navbar from './Navbar';
+import { homeData } from '../data/homeData'
 
 const Header = () => (
     <div>
@@ -8,7 +9,7 @@ const Header = () => (
             <header id="header">
                 <div className="d-flex flex-column">
                     <div className="profile">
-                    <img src="assets/img/profile-img.jpg" alt="" className="img-fluid rounded-circle"/>
+                    <img src={homeData.imageprofile} alt="" className="img-fluid rounded-circle"/>
                     <h1 className="text-light"><Link to="/">Alex Smith</Link></h1>
                         <div className="social-links mt-3 text-center">
                             <Link to="#" className="twitter"><i className="bx bxl-twitter"></i></Link>
