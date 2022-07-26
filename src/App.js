@@ -11,6 +11,7 @@ import Resume from './pages/Resume';
 import Portofolio from './pages/Portofolio';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import Footer from './pages/Footer';
 
 class App extends Component {
 /*
@@ -87,6 +88,7 @@ class App extends Component {
         <Route path="/contact" element={<Contact/>}></Route>
         </Routes>
         </main>
+        <Footer/>
     </div>
     </Router>
   );
