@@ -17,14 +17,32 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: [],
-      allData: [],
-      isiToken: '',
+      data: [],
+      isError: false,
+      isiToken: 'abcde',
       isiEmail: 'cvmiladiyyah@gmail.com',
       isiPassword: 'arbiamel',
     };
   }
 
+  componentDidMount() {
+    this.getData();
+}
+
+  //Get Api Users
+  getData = async () => {
+        try {
+            const response = await axios.get(`http://127.0.0.1/api/user`, config)
+            this.setState({ isError: false, data: response.data })
+
+        } catch (error) {
+            this.setState({ isError: true });
+            console.log(error);
+        }
+    }
+
+
+  /*
   componentDidMount() {
     //this.setState({ token:'dfdd' });
     //console.log(token);
@@ -49,6 +67,7 @@ class App extends Component {
       });
 
   }
+  */
   
   render() {
   return (
@@ -57,10 +76,7 @@ class App extends Component {
       <Header/>
         <main id="main">
         <Routes>
-        <Route exact path="/" element={<Home
-        
-        users = { this.state.users }
-        />}></Route>
+        <Route exact path="/" element={<Home/>}></Route>
         <Route path="/home" element={<Home/>}></Route>
         <Route path="/about" element={<About/>}></Route>
         <Route path="/resume" element={<Resume/>}></Route>
