@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from 'axios';
 import Header from './pages/Header';
 import Home from './pages/Home';
@@ -18,7 +18,7 @@ class App extends Component {
     super(props);
     this.state = {
       users: [],
-      about: '',
+      allData: [],
       isiToken: '',
       isiEmail: 'cvmiladiyyah@gmail.com',
       isiPassword: 'arbiamel',
@@ -37,17 +37,17 @@ class App extends Component {
       .then(response => {
         if((response.data.success)===true){
         //console.log(response.data);
-        this.setState({ token: response.data.token });
-        this.setState({ users: response.data.user });
-        //console.log(this.state.users);
+        //this.setState({ token: response.data.token });
+        this.setState({ users: response.data });
+        //var allData = [response.data.user];
+        //allData.push(response.data.token);
+        //console.log(allData);
         }
       })
       .catch(error => {
         console.log('error', error);
       });
 
-
-      
   }
   
   render() {

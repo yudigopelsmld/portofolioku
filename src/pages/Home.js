@@ -1,13 +1,13 @@
 import React from 'react';
-import { homeData } from '../data/homeData'
+//import { homeData } from '../data/homeData'
 
 
 const Home = (props) => (
     <div>
         <section id="hero" className="d-flex flex-column justify-content-center align-items-center">
             <div className="hero-container" data-aos="fade-in">
-                <h1>{props.users.name}</h1>
-                <p>{props.users.email}</p>
+                <h1>{props.users.user.name}</h1>
+                <p>{props.users.about.headline}</p>
             </div>
         </section>
     </div>
