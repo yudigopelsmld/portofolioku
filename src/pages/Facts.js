@@ -1,14 +1,14 @@
 import React from 'react';
 import { factData } from '../data/factData'
 
-const Facts = () => (
+const Facts = (props) => (
     <div>
     <section id="facts" className="facts">
       <div className="container">
 
         <div className="section-title">
           <h2>Facts</h2>
-          <p>{factData.detail}</p>
+          <p>{props.fact}</p>
         </div>
 
         <div className="row no-gutters">

@@ -49,7 +49,7 @@ class App extends Component {
             const response = await axios.post(`http://127.0.0.1:8000/api/login`, krm)
             //if((response.data.success)===true){
             this.setState({ isError: false, isiData: response.data.data, isiToken: response.data.token });
-            //console.log(this.state.isiToken);
+            //console.log(this.state.isiData);
             
             } catch (error) {
               this.setState({ isError: true });
@@ -101,7 +101,9 @@ class App extends Component {
       <Header/>
         <main id="main">
         <Routes>
-        <Route exact path="/" element={<Home/>}></Route>
+        <Route exact path="/" element={<Home
+        isiData={this.state.isiData}
+        />}></Route>
         <Route path="/home" element={<Home 
         isiData={this.state.isiData}
         />}></Route>

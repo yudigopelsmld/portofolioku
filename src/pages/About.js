@@ -11,8 +11,7 @@ const About = (props) => (
 
         <div className="section-title">
           <h2>About Me</h2>
-          <p>{aboutData.about}</p>
-          <p>{aboutData.about2}</p>
+          <p>{props.isiData.tentang}</p>
         </div>
 
         <div className="row">
@@ -22,35 +21,35 @@ const About = (props) => (
           <div className="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>{props.isiData.headline}</h3>
             <p className="fst-italic">
-            {aboutData.quote}
+            {props.isiData.quote1}
             </p>
             <div className="row">
               <div className="col-lg-6">
                 <ul>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{aboutData.lahir}</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{aboutData.website}</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{props.isiData.lahir}</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{props.isiData.website}</span></li>
                   <li><i className="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{props.isiData.phone}</span></li>
                   <li><i className="bi bi-chevron-right"></i> <strong>City:</strong> <span>{props.isiData.alamat}</span></li>
                 </ul>
               </div>
               <div className="col-lg-6">
                 <ul>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{aboutData.umur}</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{aboutData.pendidikan}</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{aboutData.email}</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Negara:</strong> <span>{aboutData.negara}</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{props.isiData.umur}</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{props.isiData.gelar}</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{props.isiData.email}</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Negara:</strong> <span>{props.isiData.negara}</span></li>
                 </ul>
               </div>
             </div>
             <p>
-            {aboutData.quote2}
+            {props.isiData.quote2}
             </p>
           </div>
         </div>
 
       </div>
     </section>
-    <Facts/>
+    <Facts fact  = {props.isiData.motto}/>
     <Skill/>
     </div>
     )
