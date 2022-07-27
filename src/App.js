@@ -17,7 +17,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      isiData: [],
       isError: false,
       isiToken: 'abcde',
       isiEmail: 'cvmiladiyyah@gmail.com',
@@ -31,14 +31,31 @@ class App extends Component {
 
   //Get Api Users
   getData = async () => {
-        try {
-            const response = await axios.get(`http://127.0.0.1/api/user`, config)
-            this.setState({ isError: false, data: response.data })
+    /*
+    var config = {
+      headers: {
+        Authorization : 'Bearer ' + this.state.isiToken,
+        Accept: 'application/json'
+      }
+    };
+    */
 
-        } catch (error) {
-            this.setState({ isError: true });
-            console.log(error);
-        }
+    var krm = {
+      email: this.state.isiEmail,
+      password: this.state.isiPassword
+    };
+
+        try {
+            const response = await axios.post(`http://127.0.0.1:8000/api/login`, krm)
+            //if((response.data.success)===true){
+            this.setState({ isError: false, isiData: response.data.data, isiToken: response.data.token });
+            //console.log(this.state.isiToken);
+            
+            } catch (error) {
+              this.setState({ isError: true });
+              //console.log(error);
+          }
+
     }
 
 
@@ -70,15 +87,26 @@ class App extends Component {
   */
   
   render() {
+    if ((this.state.isError)===true) {
+      return (
+        <div>
+          <h1>Terjadi Error Saat Memuat Data</h1>
+        </div>
+      )
+    }else{
   return (
     <Router>
     <div>
+      
       <Header/>
         <main id="main">
         <Routes>
         <Route exact path="/" element={<Home/>}></Route>
-        <Route path="/home" element={<Home/>}></Route>
-        <Route path="/about" element={<About/>}></Route>
+        <Route path="/home" element={<Home 
+        isiData={this.state.isiData}
+        />}></Route>
+        <Route path="/about" element={<About
+        isiData={this.state.isiData}/>}></Route>
         <Route path="/resume" element={<Resume/>}></Route>
         <Route path="/portofolio" element={<Portofolio/>}></Route>
         <Route path="/services" element={<Services/>}></Route>
@@ -86,10 +114,10 @@ class App extends Component {
         </Routes>
         </main>
       <Footer/>
-      
     </div>
     </Router>
   );
+        }
 }
 }
 

@@ -4,7 +4,7 @@ import Skill from './Skill';
 import { homeData } from '../data/homeData'
 import { aboutData } from '../data/aboutData'
 
-const About = () => (
+const About = (props) => (
     <div>
     <section id="about" className="about">
       <div className="container">
@@ -17,10 +17,10 @@ const About = () => (
 
         <div className="row">
           <div className="col-lg-4" data-aos="fade-right">
-            <img src={homeData.imageprofile} className="img-fluid" alt=""/>
+            <img src={`http://127.0.0.1:8000/gambar/${props.isiData.photo}`} className="img-fluid" alt=""/>
           </div>
           <div className="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>{homeData.description}</h3>
+            <h3>{props.isiData.headline}</h3>
             <p className="fst-italic">
             {aboutData.quote}
             </p>
@@ -29,8 +29,8 @@ const About = () => (
                 <ul>
                   <li><i className="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{aboutData.lahir}</span></li>
                   <li><i className="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{aboutData.website}</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{aboutData.telpon}</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>City:</strong> <span>{aboutData.kota}</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{props.isiData.phone}</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>City:</strong> <span>{props.isiData.alamat}</span></li>
                 </ul>
               </div>
               <div className="col-lg-6">
