@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { skillData } from '../data/skillData'
+//import { skillData } from '../data/skillData'
 import axios from 'axios';
 
 // nama class diawali huruf kapital (uppercase)
@@ -48,7 +48,7 @@ class Skill extends Component {
 
     render(){
         var items = this.state.isiSkill;
-        console.log(items);
+        //console.log(items);
         return (
             
 <div>
@@ -63,7 +63,7 @@ class Skill extends Component {
         <div className="col-lg-12" data-aos="fade-up" >
           {items.map(item => (
             <div className="progress" key={item.id}>
-              <span className="skill">{item.nama}<i className="val">100%</i></span>
+              <span className="skill">{item.nama}<i className="val">{item.nilai}%</i></span>
               <div className="progress-bar-wrap">
                 <div className="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
