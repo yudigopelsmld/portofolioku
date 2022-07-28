@@ -50,7 +50,7 @@ const About = (props) => (
       </div>
     </section>
     <Facts fact  = {props.isiData.motto}/>
-    <Skill/>
+    <Skill token  = {props.isiToken}/>
     </div>
     )
 

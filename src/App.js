@@ -108,7 +108,9 @@ class App extends Component {
         isiData={this.state.isiData}
         />}></Route>
         <Route path="/about" element={<About
-        isiData={this.state.isiData}/>}></Route>
+        isiData={this.state.isiData}
+        isiToken={this.state.isiToken}
+        />}></Route>
         <Route path="/resume" element={<Resume/>}></Route>
         <Route path="/portofolio" element={<Portofolio/>}></Route>
         <Route path="/services" element={<Services/>}></Route>
