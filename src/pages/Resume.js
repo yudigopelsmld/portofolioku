@@ -10,7 +10,11 @@ class Resume extends Component {
     super(props);
     this.state = {
       isiResume: [],
+      isiKerja: [],
+      isiCert: [],
       isError: false,
+      item:[],
+      experience:[]
     };
   }
 
@@ -31,24 +35,49 @@ getData = async () => {
       try {
           const response = await axios.get(`http://127.0.0.1:8000/api/education`, config)
           //if((response.data.success)===true){
-          //this.setState({ isError: false, isiResume: response.data });
+          this.setState({ isError: false, isiResume: response.data });
           
           //const names = Array.keys(this.state.isiSkill);
-          console.log(response.data);
+          //console.log(this.props.isiResume);
 
           } catch (error) {
             this.setState({ isError: true });
             //console.log(error);
         }
 
-        //var items=this.state.isiSkill.map(data => ({value: data.id, nama: data.nama}));
-        //console.log(items);
+        try {
+          const response = await axios.get(`http://127.0.0.1:8000/api/kerja`, config)
+          //if((response.data.success)===true){
+          this.setState({ isError: false, isiKerja: response.data });
+          
+          //const names = Array.keys(this.state.isiSkill);
+          //console.log(this.state.isiKerja);
+
+          } catch (error) {
+            this.setState({ isError: true });
+            //console.log(error);
+        }
+
+        try {
+          const response = await axios.get(`http://127.0.0.1:8000/api/sertifikat`, config)
+          //if((response.data.success)===true){
+          this.setState({ isError: false, isiCert: response.data });
+          
+          //const names = Array.keys(this.state.isiSkill);
+          //console.log(this.state.isiKerja);
+
+          } catch (error) {
+            this.setState({ isError: true });
+            //console.log(error);
+        }
   }
   
   
   render(){
     var items = this.state.isiResume;
-    console.log(items);
+    var itemsKerja = this.state.isiKerja;
+    var itemsCert = this.state.isiCert;
+    //console.log(itemsKerja);
     return (
 <div>
   <section id="resume" className="resume">
@@ -60,7 +89,7 @@ getData = async () => {
     </div>
 
     <div className="row">
-    {items.map(item => (
+   
       <div className="col-lg-6" data-aos="fade-up">
 
         <h3 className="resume-title">Summary</h3>
@@ -75,65 +104,46 @@ getData = async () => {
         </div>
 
        
-        <h3 className="resume-title" key={item.id}>Education</h3>
-        
+        <h3 className="resume-title">Education</h3>
+        {items.map(item => (
+        <div key={item.id}>
         <div className="resume-item">
-          <h4>{item.id}</h4>
-          <h5>{item.tahun_awal}</h5>
-          <p><em>{resumeData.sekolah1}</em></p>
-          <p>{resumeData.detail1}</p>
+          <h4>{item.tahun_awal} - {item.tahun_akhir}</h4>
+          <h5>{item.jurusan}</h5>
+          <p><em>{item.sekolah}</em></p>
+
         </div>
+        </div>
+        ))}
       </div>
-      ))}
+
 
       <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
         <h3 className="resume-title">Professional Experience</h3>
-
-        <div className="resume-item">
-            <h4>{resumeData.jabatan5}</h4>
-            <h5>{resumeData.thnjabat5}</h5>
-            <p><em>{resumeData.perusahaan5} </em></p>
-            <ul>
-              <li>{resumeData.tugas5}</li>
-            </ul>
-          </div>
-
+        {itemsKerja.map(experience => (
+        <div key={experience.id}>
           <div className="resume-item">
-            <h4>{resumeData.jabatan4}</h4>
-            <h5>{resumeData.thnjabat4}</h5>
-            <p><em>{resumeData.perusahaan4} </em></p>
-            <ul>
-              <li>{resumeData.tugas4}</li>
-            </ul>
+            <h4>{experience.pekerjaan}</h4>
+            <h5>{experience.tahun_awal} - {experience.tahun_akhir}</h5>
+            <p><em>{experience.perusahaan5} </em></p>
           </div>
-
-        <div className="resume-item">
-            <h4>{resumeData.jabatan3}</h4>
-            <h5>{resumeData.thnjabat3}</h5>
-            <p><em>{resumeData.perusahaan3} </em></p>
-            <ul>
-              <li>{resumeData.tugas3}</li>
-            </ul>
-          </div>
-
-          <div className="resume-item">
-            <h4>{resumeData.jabatan2}</h4>
-            <h5>{resumeData.thnjabat2}</h5>
-            <p><em>{resumeData.perusahaan2} </em></p>
-            <ul>
-              <li>{resumeData.tugas2}</li>
-            </ul>
-          </div>
-            
-          <div className="resume-item">
-            <h4>{resumeData.jabatan1}</h4>
-            <h5>{resumeData.thnjabat1}</h5>
-            <p><em>{resumeData.perusahaan1} </em></p>
-            <ul>
-              <li>{resumeData.tugas1}</li>=
-            </ul>
-          </div>
+        </div>
+        ))}
       </div>
+
+      <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <h3 className="resume-title">Certificate</h3>
+        {itemsCert.map(cert => (
+        <div key={cert.id}>
+          <div className="resume-item">
+            <h4>{cert.nama}</h4>
+            <h5>{cert.tanggal}</h5>
+            <p><em>{cert.detail} </em></p>
+          </div>
+        </div>
+        ))}
+      </div>
+
     </div>
 
   </div>
