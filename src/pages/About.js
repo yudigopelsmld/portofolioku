@@ -1,8 +1,8 @@
 import React from 'react';
 import Facts from './Facts';
 import Skill from './Skill';
-import { homeData } from '../data/homeData'
-import { aboutData } from '../data/aboutData'
+//import { homeData } from '../data/homeData'
+//import { aboutData } from '../data/aboutData'
 
 const About = (props) => (
     <div>

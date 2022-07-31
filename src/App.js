@@ -47,44 +47,16 @@ class App extends Component {
 
         try {
             const response = await axios.post(`http://127.0.0.1:8000/api/login`, krm)
-            //if((response.data.success)===true){
+            if((response.data.success)===true){
             this.setState({ isError: false, isiData: response.data.data, isiToken: response.data.token });
             //console.log(this.state.isiData);
-            
+            }
             } catch (error) {
               this.setState({ isError: true });
               //console.log(error);
           }
 
     }
-
-
-  /*
-  componentDidMount() {
-    //this.setState({ token:'dfdd' });
-    //console.log(token);
-    var data = {
-      email: this.state.isiEmail,
-      password: this.state.isiPassword
-  }
-    axios
-      .post('http://127.0.0.1:8000/api/login', data)
-      .then(response => {
-        if((response.data.success)===true){
-        //console.log(response.data);
-        //this.setState({ token: response.data.token });
-        this.setState({ users: response.data });
-        //var allData = [response.data.user];
-        //allData.push(response.data.token);
-        //console.log(allData);
-        }
-      })
-      .catch(error => {
-        console.log('error', error);
-      });
-
-  }
-  */
   
   render() {
     if ((this.state.isError)===true) {
@@ -98,7 +70,9 @@ class App extends Component {
     <Router>
     <div>
       
-      <Header/>
+      <Header
+      isiData={this.state.isiData}
+      />
         <main id="main">
         <Routes>
         <Route exact path="/" element={<Home
@@ -115,9 +89,12 @@ class App extends Component {
         isiData={this.state.isiData}
         isiToken={this.state.isiToken}
         />}></Route>
-        <Route path="/portofolio" element={<Portofolio/>}></Route>
-        <Route path="/services" element={<Services/>}></Route>
-        <Route path="/contact" element={<Contact/>}></Route>
+        <Route path="/portofolio" element={<Portofolio
+        isiToken={this.state.isiToken}
+        />}></Route>
+        <Route path="/contact" element={<Contact
+        isiData={this.state.isiData}
+        />}></Route>
         </Routes>
         </main>
       <Footer/>

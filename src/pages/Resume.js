@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //import { aboutData } from '../data/aboutData';
 //import { homeData } from '../data/homeData'
-import { resumeData } from '../data/resumeData'
+//import { resumeData } from '../data/resumeData'
 import axios from 'axios';
 
 class Resume extends Component {
@@ -102,23 +102,8 @@ getData = async () => {
             <li>{this.props.isiData.email}</li>
           </ul>
         </div>
-
-       
-        <h3 className="resume-title">Education</h3>
-        {items.map(item => (
-        <div key={item.id}>
-        <div className="resume-item">
-          <h4>{item.tahun_awal} - {item.tahun_akhir}</h4>
-          <h5>{item.jurusan}</h5>
-          <p><em>{item.sekolah}</em></p>
-
         </div>
-        </div>
-        ))}
-      </div>
-
-
-      <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
         <h3 className="resume-title">Professional Experience</h3>
         {itemsKerja.map(experience => (
         <div key={experience.id}>
@@ -130,7 +115,26 @@ getData = async () => {
         </div>
         ))}
       </div>
+    </div>
+    <div className="row">
+    <div className="col-lg-6" data-aos="fade-up">
+       
+       <h3 className="resume-title">Education</h3>
+       {items.map(item => (
+       <div className="col-lg-6" key={item.id}>
+       <div className="resume-item">
+         <h4>{item.tahun_awal} - {item.tahun_akhir}</h4>
+         <h5>{item.jurusan}</h5>
+         <p><em>{item.sekolah}</em></p>
 
+       </div>
+       </div>
+       ))}
+     </div>
+
+      
+
+      
       <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
         <h3 className="resume-title">Certificate</h3>
         {itemsCert.map(cert => (
@@ -139,6 +143,7 @@ getData = async () => {
             <h4>{cert.nama}</h4>
             <h5>{cert.tanggal}</h5>
             <p><em>{cert.detail} </em></p>
+            <img src={`http://127.0.0.1:8000/gambar/${cert.gambar}`} className="img-fluid" alt=""/>
           </div>
         </div>
         ))}
