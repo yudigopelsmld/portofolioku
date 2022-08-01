@@ -29,7 +29,7 @@ getData = async () => {
 
 
       try {
-          const response = await axios.get(`http://127.0.0.1:8000/api/portofolio`, config)
+          const response = await axios.get(this.props.url + `portofolio`, config)
           if((response.data.message)!=='Unauthenticated.'){
           this.setState({ isError: false, isiPorto: response.data });
           }

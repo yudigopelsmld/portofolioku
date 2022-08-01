@@ -36,7 +36,7 @@ import axios from 'axios';
           Accept: 'application/json'
         }
       };
-      var url = 'http://127.0.0.1:8000/api/email';
+      var url = this.props.url + 'email';
       //if (this.state.formStatus === 'create') {
         this.addMessage(url,config,payload);
         /*

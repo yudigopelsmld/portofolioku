@@ -106,17 +106,21 @@ checkUser = async () => {
         <Route path="/about" element={<About
         isiData={this.state.isiData}
         isiToken={this.state.isiToken}
+        url = {this.state.url}
         />}></Route>
         <Route path="/resume" element={<Resume
         isiData={this.state.isiData}
         isiToken={this.state.isiToken}
+        url = {this.state.url}
         />}></Route>
         <Route path="/portofolio" element={<Portofolio
         isiToken={this.state.isiToken}
+        url = {this.state.url}
         />}></Route>
         <Route path="/contact" element={<Contact
         isiData={this.state.isiData}
         isiToken={this.state.isiToken}
+        url = {this.state.url}
         />}></Route>
         </Routes>
         </main>

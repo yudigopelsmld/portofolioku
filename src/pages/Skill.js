@@ -29,7 +29,7 @@ class Skill extends Component {
 
     
             try {
-                const response = await axios.get(`http://127.0.0.1:8000/api/skill`, config)
+                const response = await axios.get(this.props.url + 'skill', config)
                 //if((response.data.success)===true){
                 this.setState({ isError: false, isiSkill: response.data });
                 
@@ -41,8 +41,6 @@ class Skill extends Component {
                   //console.log(error);
               }
 
-              //var items=this.state.isiSkill.map(data => ({value: data.id, nama: data.nama}));
-              //console.log(items);
         }
         
 

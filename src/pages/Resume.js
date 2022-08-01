@@ -14,7 +14,8 @@ class Resume extends Component {
       isiCert: [],
       isError: false,
       item:[],
-      experience:[]
+      experience:[],
+      urlgb : 'http://127.0.0.1:8000/gambar/',
     };
   }
 
@@ -33,7 +34,7 @@ getData = async () => {
 
 
       try {
-          const response = await axios.get(`http://127.0.0.1:8000/api/education`, config)
+          const response = await axios.get(this.props.url + `education`, config)
           //if((response.data.success)===true){
           this.setState({ isError: false, isiResume: response.data });
           
@@ -46,7 +47,7 @@ getData = async () => {
         }
 
         try {
-          const response = await axios.get(`http://127.0.0.1:8000/api/kerja`, config)
+          const response = await axios.get(this.props.url + `kerja`, config)
           //if((response.data.success)===true){
           this.setState({ isError: false, isiKerja: response.data });
           
@@ -59,7 +60,7 @@ getData = async () => {
         }
 
         try {
-          const response = await axios.get(`http://127.0.0.1:8000/api/sertifikat`, config)
+          const response = await axios.get(this.props.url + `sertifikat`, config)
           //if((response.data.success)===true){
           this.setState({ isError: false, isiCert: response.data });
           
@@ -145,7 +146,7 @@ getData = async () => {
             <h4>{cert.nama}</h4>
             <h5>{cert.tanggal}</h5>
             <p><em>{cert.detail} </em></p>
-            <img src={`http://127.0.0.1:8000/gambar/${cert.gambar}`} className="img-fluid" alt=""/>
+            <img src={this.state.urlgb + `${cert.gambar}`} className="img-fluid" alt=""/>
           </div>
         </div>
         ))}
