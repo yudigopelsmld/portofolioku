@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+//import AuthVerify from '../pages/AuthVerify';
 
 class Portofolio extends Component {
   constructor(props) {
@@ -8,10 +9,12 @@ class Portofolio extends Component {
       isiPorto: [],
       isError: false,
       item:[],
+      isiToken:this.props.isiToken,
     };
   }
 
   componentDidMount() {
+
     this.getData();
 }
 
@@ -19,7 +22,7 @@ getData = async () => {
         
   var config = {
     headers: {
-      Authorization : 'Bearer ' + this.props.isiToken,
+      Authorization : 'Bearer ' + this.state.isiToken,
       Accept: 'application/json'
     }
   };
@@ -27,16 +30,17 @@ getData = async () => {
 
       try {
           const response = await axios.get(`http://127.0.0.1:8000/api/portofolio`, config)
-          //if((response.data.success)===true){
+          if((response.data.message)!=='Unauthenticated.'){
           this.setState({ isError: false, isiPorto: response.data });
-          
+          }
           //const names = Array.keys(this.state.isiSkill);
           //console.log(this.props.isiPorto);
 
           } catch (error) {
             this.setState({ isError: true });
-            //console.log(error);
+            //console.log(this.state.isError);
         }
+
 
   }
   
@@ -70,7 +74,7 @@ getData = async () => {
             <div className="portfolio-wrap">
               <img src={`http://127.0.0.1:8000/gambar/${item.photo}`} className="img-fluid" alt=""/>
               <div className="portfolio-links">
-              <a href={item.link} target='_blank' rel="noopener" title={item.nama}><i className="bx bx-link"></i></a>
+              <a href={item.link} target='_blank' rel="noreferrer" title={item.nama}><i className="bx bx-link"></i></a>
               </div>
             </div>
           </div>

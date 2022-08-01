@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Resume from './pages/Resume';
 import Portofolio from './pages/Portofolio';
-import Services from './pages/Services';
+//import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Footer from './pages/Footer';
 
@@ -18,27 +18,50 @@ class App extends Component {
     super(props);
     this.state = {
       isiData: [],
-      isError: false,
+      isError: true,
       isiToken: 'abcde',
       isiEmail: 'cvmiladiyyah@gmail.com',
       isiPassword: 'arbiamel',
+      url : 'http://127.0.0.1:8000/api/',
     };
   }
 
   componentDidMount() {
-    this.getData();
+    this.checkUser();
+    if(this.state.isError === true){
+      this.getData();
+    }
+    //this.getData();
 }
+
+checkUser = async () => {
+  //check data user
+  //this.setState({ isiToken:  'abcde' });
+  var config = {
+    headers: {
+      Authorization : 'Bearer ' + this.state.isiToken,
+      Accept: 'application/json'
+    }
+  };
+
+  try {
+    const response = await axios.get(this.state.url + 'user', config)
+    //if((response.data.success)===true){
+    this.setState({ isError: false });
+    //console.log(response.data);
+    //}
+    } catch (error) {
+      //this.setState({ isError: true });
+      console.log(error);
+  }
+    //this.setState({ isiToken:  'abcde' });
+  //check data user
+
+}
+
 
   //Get Api Users
   getData = async () => {
-    /*
-    var config = {
-      headers: {
-        Authorization : 'Bearer ' + this.state.isiToken,
-        Accept: 'application/json'
-      }
-    };
-    */
 
     var krm = {
       email: this.state.isiEmail,
@@ -46,11 +69,11 @@ class App extends Component {
     };
 
         try {
-            const response = await axios.post(`http://127.0.0.1:8000/api/login`, krm)
-            if((response.data.success)===true){
+            const response = await axios.post(this.state.url + 'login', krm)
+            //if((response.data.success)===true){
             this.setState({ isError: false, isiData: response.data.data, isiToken: response.data.token });
-            //console.log(this.state.isiData);
-            }
+            //console.log(response.data);
+            //}
             } catch (error) {
               this.setState({ isError: true });
               //console.log(error);
@@ -62,14 +85,13 @@ class App extends Component {
     if ((this.state.isError)===true) {
       return (
         <div>
-          <h1>Terjadi Error Saat Memuat Data</h1>
+          <h1>Loading Data...</h1>
         </div>
       )
     }else{
   return (
     <Router>
     <div>
-      
       <Header
       isiData={this.state.isiData}
       />
@@ -94,6 +116,7 @@ class App extends Component {
         />}></Route>
         <Route path="/contact" element={<Contact
         isiData={this.state.isiData}
+        isiToken={this.state.isiToken}
         />}></Route>
         </Routes>
         </main>

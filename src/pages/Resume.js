@@ -90,7 +90,7 @@ getData = async () => {
 
     <div className="row">
    
-      <div className="col-lg-6" data-aos="fade-up">
+      <div className="col-lg-12" data-aos="fade-up">
 
         <h3 className="resume-title">Summary</h3>
         <div className="resume-item pb-0">
@@ -102,7 +102,10 @@ getData = async () => {
             <li>{this.props.isiData.email}</li>
           </ul>
         </div>
-        </div>
+      </div>
+    </div>
+
+    <div className='row'>
         <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
         <h3 className="resume-title">Professional Experience</h3>
         {itemsKerja.map(experience => (
@@ -114,10 +117,9 @@ getData = async () => {
           </div>
         </div>
         ))}
-      </div>
-    </div>
-    <div className="row">
-    <div className="col-lg-6" data-aos="fade-up">
+        </div>
+
+        <div className="col-lg-6" data-aos="fade-up">
        
        <h3 className="resume-title">Education</h3>
        {items.map(item => (
@@ -130,12 +132,12 @@ getData = async () => {
        </div>
        </div>
        ))}
-     </div>
+        </div>
 
-      
+    </div>
 
-      
-      <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+    <div className="row">
+      <div className="col-lg-12" data-aos="fade-up" data-aos-delay="100">
         <h3 className="resume-title">Certificate</h3>
         {itemsCert.map(cert => (
         <div key={cert.id}>

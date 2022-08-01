@@ -49,8 +49,8 @@ const About = (props) => (
 
       </div>
     </section>
-    <Facts fact  = {props.isiData.motto}/>
     <Skill token  = {props.isiToken}/>
+    <Facts fact  = {props.isiData.motto}/>
     </div>
     )
 

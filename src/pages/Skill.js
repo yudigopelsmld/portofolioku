@@ -34,7 +34,7 @@ class Skill extends Component {
                 this.setState({ isError: false, isiSkill: response.data });
                 
                 //const names = Array.keys(this.state.isiSkill);
-                //console.log(names);
+                //console.log(this.props.token);
 
                 } catch (error) {
                   this.setState({ isError: true });
